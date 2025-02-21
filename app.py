@@ -2,15 +2,12 @@
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.docstore.document import Document
 from langchain.text_splitter import CharacterTextSplitter
-
 # File handling and format-specific libraries
 import os
 from PyPDF2 import PdfReader  # For PDF files
 import docx  # For DOCX files
-
 # Frontend library
 import streamlit as st  # For creating an interactive web interface
-
 # Load the Hugging Face embedding model
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
@@ -80,13 +77,13 @@ def main():
                 f.write(uploaded_file.getbuffer())
             document_text = read_document(uploaded_file.name)
             st.session_state.documents = split_document(document_text)
-            st.success("✅ Document successfully processed.")
+            st.success("Document successfully processed.")
         except Exception as e:
-            st.error(f"⚠️ Error processing file: {e}")
+            st.error(f"Error processing file: {e}")
 
     query_text = st.text_input("Enter your query:", placeholder="Type your semantic search query here...")
 
-    if st.button("🔍 Search"):
+    if st.button("Search"):
         if query_text and st.session_state.documents:
             doc, score = search_query(query_text, st.session_state.documents)
             if doc:
@@ -96,7 +93,7 @@ def main():
 
     # Display the search result
     if st.session_state.search_result:
-        st.subheader("🔎 Search Result:")
+        st.subheader("Search Result:")
         content, score = st.session_state.search_result
         st.markdown(f"**{content}**")
         st.markdown(f"\n*Similarity Score:* {score:.4f}")
