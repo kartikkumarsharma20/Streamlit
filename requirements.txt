@@ -1,0 +1,7 @@
+streamlit
+langchain
+sentence-transformers
+googletrans==4.0.0-rc1
+tqdm
+PyPDF2
+python-docx
