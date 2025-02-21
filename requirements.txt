@@ -1,9 +1,9 @@
 streamlit
-langchain==0.0.353
-langchain-community==0.0.20
-sentence-transformers==2.6.0
-googletrans==4.0.0-rc1
+langchain
+langchain-community
+sentence-transformers
+googletrans
 tqdm
 PyPDF2
 python-docx
-httpx==0.27.0
+httpx
