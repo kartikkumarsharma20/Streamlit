@@ -1,6 +1,5 @@
 streamlit
 langchain==0.0.353
-langchain-core==0.3.23
 langchain-community==0.0.20
 sentence-transformers==2.6.0
 googletrans==4.0.0-rc1
